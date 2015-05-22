@@ -6,6 +6,7 @@
 
     <!-- Style sheets -->
     <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/font-awesome.css" rel="stylesheet" />
 </head>
 
 <body ng-app="productManagement">
@@ -18,19 +19,22 @@
     </nav>
 
     <div class="container">
-        <div ng-include="'app/products/productListView.html'"></div>
+        <div ng-include="'app/products/productEditView.html'"></div>
     </div>
 
     <!-- Library Scripts -->
     <script src="scripts/angular.js"></script>
-
+    <script src="Scripts/angular-resource.js"></script>
     <!-- Application Script -->
     <script src="app/app.js"></script>
 
     <!-- Services -->
-
+    <script src="common/common.services.js"></script>
+    <script src="common/productResource.js"></script>
     <!-- Product Controllers -->
     <script src="app/products/productListCtrl.js"></script>
+    <script src="app/products/productEditCtrl.js"></script>
+    <script src="Scripts/jquery-1.9.1.js"></script>
     <script src="Scripts/bootstrap.js"></script>
 </body>
 

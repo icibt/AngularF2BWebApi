@@ -10,10 +10,10 @@
 
             <thead>
                 <tr>
-                    <td>Product</td>
-                    <td>Code</td>
-                    <td>Available</td>
-                    <td>Price</td>
+                    <th><a ng-click="vm.changeSort('Description')">Product</a><span ng-show="vm.sortProperty == 'Description'"><i ng-show="vm.sortAscending" class="fa fa-arrow-up"></i><i ng-show="!vm.sortAscending" class="fa fa-arrow-down"></i></span></th>
+                    <th><a ng-click="vm.changeSort('ProductCode')">Code</a></th>
+                    <th>Available</th>
+                    <th><a ng-click="vm.changeSort('Price')">Price</a><span ng-show="vm.sortProperty == 'Price'"><i ng-show="vm.sortAscending" class="fa fa-arrow-up"></i><i ng-show="!vm.sortAscending" class="fa fa-arrow-down"></i></span></th>
                 </tr>
             </thead>
             <tbody>
