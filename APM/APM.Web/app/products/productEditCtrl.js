@@ -22,7 +22,7 @@
                 vm.message += response.data.exceptionMessage;
         };
 
-        productResource.get({ id: 52 },
+        productResource.get({ id: 5 },
             function (data) {
                 vm.product = data;
                 vm.originalProduct = angular.copy(data);
