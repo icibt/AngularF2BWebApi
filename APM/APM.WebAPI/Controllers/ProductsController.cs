@@ -31,6 +31,7 @@ namespace APM.WebAPI.Controllers
 
         // GET api/products/5
         [ResponseType(typeof(Product))]
+        [Authorize]
         public IHttpActionResult Get(int id)
         {
             try
@@ -41,7 +42,7 @@ namespace APM.WebAPI.Controllers
                 if (id > 0)
                 {
                     product = productRepository.Retrieve().FirstOrDefault(x => x.ProductId == id);
-                    return NotFound();
+                    //return NotFound();
                 }
                 else
                 {

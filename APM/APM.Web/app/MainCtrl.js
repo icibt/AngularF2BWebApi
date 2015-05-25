@@ -5,12 +5,14 @@
         .module('productManagement')
         .controller('MainCtrl', MainCtrl);
 
-    MainCtrl.$inject = ['userAccount']; 
+    MainCtrl.$inject = ['userAccount','currentUser']; 
 
-    function MainCtrl(userAccount) {
+    function MainCtrl(userAccount, currentUser) {
         /* jshint validthis:true */
         var vm = this;
-        vm.isLoggedIn = false;
+        vm.isLoggedIn = function() {
+            return currentUser.getProfile().isLoggedIn;
+        };
         vm.message = '';
         vm.userData = {
             userName: '',
@@ -33,13 +35,11 @@
             vm.userData.grant_type = "password";
             vm.userData.userName = vm.userData.email;
             userAccount.login.loginUser(vm.userData, function(data) {
-                vm.isLoggedIn = true;
                 vm.message = '';
                 vm.password = '';
-                vm.token = data.access_token;
+                currentUser.setProfile(vm.userData.userName, data.access_token);
             }, function(response) {
                 vm.password = '';
-                vm.isLoggedIn = false;
                 errorCallback(response);
             });
         };
